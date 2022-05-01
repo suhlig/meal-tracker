@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mealtracker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+</head>
+<body>
+  <header>
+    <h1><%= link_to "Meal Tracker", :meals %></h1>
+    <p>Wann haben wir <i>das</i> zuletzt gegessen?</p>
+  </header>
 
-  <body>
+  <main>
     <%= yield %>
-  </body>
+  </main>
+
+  <footer>
+    <p>Steffen Uhlig, 2022</p>
+  </footer>
+</body>
 </html>

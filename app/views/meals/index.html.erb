@@ -1,0 +1,13 @@
+<h1>Meals</h1>
+
+<%= link_to "Neu...", new_meal_path %>
+
+<ul>
+  <% @meals.each do |meal| %>
+    <li>
+      <%= link_to meal.title, meal %> (1.1.1970)
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Neu...", new_meal_path %>

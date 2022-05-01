@@ -1,0 +1,31 @@
+<h1><%= @meal.title %></h1>
+
+<ul>
+  <li><%= link_to "Bearbeiten", edit_meal_path(@meal) %></li>
+  <li><%= link_to "Löschen", meal_path(@meal), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Sicher?"
+                  } %></li>
+</ul>
+
+<section>
+  <h2>Notizen</h2>
+  <p><%= @meal.notes %></p>
+</section>
+
+<section>
+  <h2>Zuletzt gekocht</h2>
+  <p>
+<%
+=begin %>  <% ruby_code %>
+  <ul>
+    <% @meal.cookings.each do |cooking| %>
+      <li>
+        <%= cooking %>
+      </li>
+    <% end %>
+  </ul>
+<%
+=end %>
+  </p>
+</section>

@@ -1,7 +1,47 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Meal.destroy_all
+
+Meal.create!([
+  { title: "Gulasch mit Rotkraut und Klößen" },
+  { title: "Spaghetti mit Tomatensoße" },
+  { title: "Spaghetti mit Wurstgulasch" },
+  { title: "Spaghetti mit Pesto" },
+  { title: "Klitzscher" },
+  { title: "Eierkuchen mit Apfelmus" },
+  { title: "Lasagne" },
+  { title: "Pizza" },
+  { title: "Fischfilet mit Kartoffelpüree" },
+  { title: "Beefsteak mit Kartoffelpüree" },
+  { title: "Schaschlik" },
+  { title: "Rouladen" },
+  { title: "Schnitzel" },
+  { title: "Kaiserschmarren" },
+  { title: "Spaghetti mit Käsesoße" },
+  { title: "Linseneintopf" },
+  { title: "Gemüseeintopf" },
+  { title: "Gemüseeintopf a la Melzer (Bechamelsoße)" },
+  { title: "Hähnchenbrust in Sahnesoße" },
+  { title: "Salzbraten mit Kartoffelsalat" },
+  { title: "Würstchen mit Kartoffelsalat" },
+  { title: "Schafskäse/Hackfleischauflauf" },
+  { title: "Nudelsuppe" },
+  { title: "Puddingsuppe" },
+  { title: "Fruchtkaltschale" },
+  { title: "Kohlrouladen" },
+  { title: "Käse-Lauch-Suppe mit Hackfleisch" },
+  { title: "Hackfleischauflauf a la Yvonne" },
+  { title: "Chili Con Carne" },
+  { title: "Lasagne vegetarisch mit Spinat" },
+  { title: "Cevapcici mit TexMex und Reis" },
+  { title: "Hamburger (selbstgemacht)" },
+  { title: "Würstchen mit Sauerkraut" },
+  { title: "Putengeschnetzeltes mit Reis und süß-saurem Gemüse" },
+  { title: "Züricher Geschnetzeltes mit Spätzle" },
+  { title: "Gefüllte Paprika mit Reis oder Pommes" },
+  { title: "Hackbraten mit Kartoffelpüree" },
+  { title: "Blumenkohl gebraten (wie Schnitzel) und gebackene Kartoffelspalten" },
+  { title: "Spinat mit Spiegelei und Pellkartoffeln" },
+  { title: "Schinken-Lauch-Nudeln (Poree-Spaghetti)" },
+])
+
+puts "Seeded #{Meal.count} meals"
+
