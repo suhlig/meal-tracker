@@ -1,3 +1,7 @@
 <li>
   <%= cooking.cooked_at %>
+  <%= link_to "❌", [cooking.meal, cooking], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Eintrag für den #{cooking.cooked_at} wirklich löschen?"
+              } %>
 </li>
