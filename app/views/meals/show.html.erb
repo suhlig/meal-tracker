@@ -14,18 +14,23 @@
 </section>
 
 <section>
-  <h2>Zuletzt gekocht</h2>
+  <h2>Zuletzt gekocht am</h2>
   <p>
-<%
-=begin %>  <% ruby_code %>
   <ul>
-    <% @meal.cookings.each do |cooking| %>
-      <li>
-        <%= cooking %>
-      </li>
-    <% end %>
+    <%= render @meal.cookings %>
   </ul>
-<%
-=end %>
+
+  <%= form_with model: [ @meal, @meal.cookings.build ] do |form| %>
+    <p>
+      <%= form.date_field :cooked_at, value: DateTime.now.to_date %>
+
+      <%# TODO Does not show error %>
+      <% @meal.errors.full_messages_for(:cooked_at).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+
+      <%= form.submit %>
+    </p>
+  <% end %>
   </p>
 </section>

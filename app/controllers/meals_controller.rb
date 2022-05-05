@@ -41,7 +41,9 @@ class MealsController < ApplicationController
 
     redirect_to root_path, status: :see_other
   end
-private
+
+  private
+
   def meal_params
     params.require(:meal).permit(:title, :notes)
   end
