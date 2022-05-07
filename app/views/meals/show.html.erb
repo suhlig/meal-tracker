@@ -9,11 +9,6 @@
 </ul>
 
 <section>
-  <h2>Notizen</h2>
-  <p><%= @meal.notes %></p>
-</section>
-
-<section>
   <h2>Zuletzt gekocht am</h2>
   <p>
   <ul>
@@ -24,13 +19,18 @@
     <p>
       <%= form.date_field :cooked_at, value: DateTime.now.to_date %>
 
-      <%# TODO Does not show error %>
+      <%# TODO Does not show errors %>
       <% @meal.errors.full_messages_for(:cooked_at).each do |message| %>
         <div><%= message %></div>
       <% end %>
 
-      <%= form.submit %>
+      <%= form.submit 'Anlegen' %>
     </p>
   <% end %>
   </p>
+</section>
+
+<section>
+  <h2>Notizen</h2>
+  <p><%= @meal.notes %></p>
 </section>
