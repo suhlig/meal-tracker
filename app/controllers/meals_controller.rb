@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   def index
-    @meals = Meal.all
+    @meals = Meal.includes(:cookings).order('cookings.cooked_at DESC')
   end
 
   def show

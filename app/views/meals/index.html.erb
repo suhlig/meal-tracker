@@ -1,11 +1,14 @@
-<h1>Meals</h1>
+<h1>Essen</h1>
 
 <%= link_to "Neu...", new_meal_path %>
 
 <ul>
   <% @meals.each do |meal| %>
     <li>
-      <%= link_to meal.title, meal %> (1.1.1970)
+      <%= link_to meal.title, meal %>
+      <% if last_cooked = meal.cookings.order(cooked_at: :desc).first %>
+        (zuletzt gekocht am <%= last_cooked.cooked_at %>)
+      <% end %>
     </li>
   <% end %>
 </ul>

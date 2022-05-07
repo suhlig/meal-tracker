@@ -4,7 +4,7 @@
   <li><%= link_to "Bearbeiten", edit_meal_path(@meal) %></li>
   <li><%= link_to "Löschen", meal_path(@meal), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Sicher?"
+                    turbo_confirm: "\"#{@meal.title}\" wirklich löschen?"
                   } %></li>
 </ul>
 
