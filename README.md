@@ -9,5 +9,4 @@ When did we last eat _this_?
 * Tags with ingredients
 * Notes on a cooking
 * Multiple ordered notes on a meal
-* Search (full-text, for tags)
 * Roulette - system picks a random meal

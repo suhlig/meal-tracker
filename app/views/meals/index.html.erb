@@ -1,16 +1,12 @@
 <h1>Essen</h1>
 
-<%= link_to "Neu...", new_meal_path %>
+<%= render 'search' %>
 
-<ul>
-  <% @meals.each do |meal| %>
-    <li>
-      <%= link_to meal.title, meal %>
-      <% if last_cooked = meal.cookings.order(cooked_at: :desc).first %>
-        (zuletzt gekocht am <%= last_cooked.cooked_at %>)
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<section>
+  <p><%= link_to "Hinzufügen...", new_meal_path %></p>
+  <%= render 'meals' %>
+  <p><%= link_to "Hinzufügen...", new_meal_path %></p>
+</section>
 
-<%= link_to "Neu...", new_meal_path %>
+<%= render 'search' %>
+

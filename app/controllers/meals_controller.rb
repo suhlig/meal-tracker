@@ -3,6 +3,12 @@ class MealsController < ApplicationController
     @meals = Meal.includes(:cookings).order('cookings.cooked_at DESC')
   end
 
+  def search
+    @query = params[:query]
+    title_matcher = Meal.arel_table[:title]
+    @meals = Meal.where(title_matcher.matches("%#{ActiveRecord::Base::sanitize_sql_like(@query)}%"))
+  end
+
   def show
     @meal = Meal.find(params[:id])
   end

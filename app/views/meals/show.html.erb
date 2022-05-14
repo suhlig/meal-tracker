@@ -1,13 +1,5 @@
 <h1><%= @meal.title %></h1>
 
-<ul>
-  <li><%= link_to "Bearbeiten", edit_meal_path(@meal) %></li>
-  <li><%= link_to "Löschen", meal_path(@meal), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "\"#{@meal.title}\" wirklich löschen?"
-                  } %></li>
-</ul>
-
 <section>
   <h2>Zuletzt gekocht am</h2>
   <p>
@@ -33,4 +25,15 @@
 <section>
   <h2>Notizen</h2>
   <p><%= @meal.notes %></p>
+</section>
+
+<section>
+  <h2>Aktionen</h2>
+  <ul>
+    <li><%= link_to "Bearbeiten", edit_meal_path(@meal) %></li>
+    <li><%= link_to "Löschen", meal_path(@meal), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "\"#{@meal.title}\" wirklich löschen?"
+                    } %></li>
+  </ul>
 </section>
