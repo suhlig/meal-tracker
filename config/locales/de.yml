@@ -1,0 +1,9 @@
+de:
+  helpers:
+    submit:
+      create: "%{model} anlegen"
+      update: "%{model} ändern"
+  activerecord:
+    models:
+      meal: Essen
+      cooking: Serviert
