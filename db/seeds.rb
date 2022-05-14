@@ -5,7 +5,7 @@ Meal.create!([
   { title: "Spaghetti mit Tomatensoße" },
   { title: "Spaghetti mit Wurstgulasch" },
   { title: "Spaghetti mit Pesto" },
-  { title: "Klitzscher" },
+  { title: "Klitscher" },
   { title: "Eierkuchen mit Apfelmus" },
   { title: "Lasagne" },
   { title: "Pizza" },
