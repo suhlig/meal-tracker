@@ -1,0 +1,49 @@
+---
+- name: mealtracker
+  hosts: all
+  gather_facts: false
+  become: false
+
+  pre_tasks:
+    - name: Dependencies are installed
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+          - libsqlite3-dev
+      become: true
+      tags: [ apt, sqlite ]
+
+  roles:
+    - role: nerab.ruby
+      vars:
+        ruby_version:
+          major: 3
+          minor: 1
+          teeny: 2
+      become: true
+      tags: [ ruby ]
+
+    - role: ansistrano.deploy
+      vars:
+        ansistrano_deploy_from: "{{ playbook_dir }}/.."
+        ansistrano_deploy_to: "/opt/{{ ansible_play_name }}"
+        ansistrano_current_via: symlink
+        ansistrano_deploy_via: rsync
+        ansistrano_shared_paths:
+          - log
+          - tmp
+        ansistrano_keep_releases: 5
+        ansistrano_before_setup_tasks_file: "{{ playbook_dir }}/roles/rails-puma/ansistrano-callbacks/before_setup.yml"
+        ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/roles/rails-puma/ansistrano-callbacks/after_symlink.yml"
+      tags: [ deploy, capistrano, ansistrano ]
+
+    - role: rails-puma
+      tags: [ puma, ruby, service ]
+
+    - role: suhlig.caddy_reverse_proxy
+      become: true
+      vars:
+        caddy_domain: "{{ mealtracker.fqdn }}"
+        caddy_port: "{{ mealtracker.port }}"
+      tags: [ mealtracker, rails, puma, caddy, proxy ]

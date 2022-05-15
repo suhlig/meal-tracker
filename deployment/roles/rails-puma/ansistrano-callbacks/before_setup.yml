@@ -1,0 +1,9 @@
+- name: ansistrano_deploy_to directory is owned by runtime user
+  file:
+    path: "{{ ansistrano_deploy_to }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  become: true
+  tags: app, directory

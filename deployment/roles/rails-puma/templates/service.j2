@@ -1,0 +1,15 @@
+[Unit]
+Description={{ ansible_play_name }}
+After=network-online.target
+
+[Service]
+User={{ ansible_user }}
+Group={{ ansible_user }}
+Environment=RAILS_ENV=production
+ExecStart={{ ansistrano_release_path.stdout }}/bin/rails server --port {{ mealtracker.port }} --environment=production
+Type=simple
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+Alias={{ ansible_play_name }}.service

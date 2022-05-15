@@ -90,4 +90,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Set to true if we ever go beyond a single node
+  config.active_record.sqlite3_production_warning = false
 end

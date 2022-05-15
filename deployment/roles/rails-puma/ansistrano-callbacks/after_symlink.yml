@@ -1,0 +1,58 @@
+- name: bundler is installed
+  gem:
+    name: bundler
+  become: true
+  tags: ruby, gem, bundler, config, deployment
+
+- name: bundler's deployment mode is enabled
+  command:
+    cmd: bundle config --local set deployment 'true'
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  become: false
+  tags: ruby, bundler, config, deployment
+
+- name: bundler is not installing development gems
+  command:
+    cmd: bundle config --local set without development
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  become: false
+  tags: ruby, bundler, config, deployment
+
+- name: Ruby dependendies are up-to-date
+  bundler:
+    state: present
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  become: false
+  tags: app, ruby, bundler
+
+- name: Assets are precompiled
+  command:
+    cmd: "rails assets:precompile"
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  environment:
+    RAILS_ENV: production
+  become: false
+  tags: rails, assets
+
+- name: Database is migrated to the latest version
+  command:
+    cmd: "rails db:migrate"
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  environment:
+    RAILS_ENV: production
+  become: false
+  tags: rails, database
+
+- name: Database migration status is captured
+  command:
+    cmd: "rails db:migrate:status"
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  environment:
+    RAILS_ENV: production
+  register: migration_status
+  become: false
+  tags: rails, database
+
+- name: Database migration status is shown
+  debug:
+    var: migration_status.stdout
