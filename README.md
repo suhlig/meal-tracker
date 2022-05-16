@@ -12,8 +12,8 @@ Note the trailing comma in the inventory passed with `-i`.
 
 # TODOs
 
-* Login via allow-listed eMail address only
 * Backup sqlite database file to S3 on a regular interval
+* Login via allow-listed eMail address only
 * Handle rails secrets
 # Ideas
 
