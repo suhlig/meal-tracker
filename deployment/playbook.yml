@@ -41,6 +41,13 @@
     - role: rails-puma
       tags: [ puma, ruby, service ]
 
+    - role: sqlite-backup-b2
+      vars:
+        timers:
+          - OnCalendar=daily
+      become: true
+      tags: [ sqlite, backup, service, timer ]
+
     - role: suhlig.caddy_reverse_proxy
       become: true
       vars:

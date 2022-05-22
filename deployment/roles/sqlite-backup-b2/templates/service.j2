@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup of the {{ ansible_play_name }} sqlite database
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=B2_APPLICATION_KEY_ID="{{ mealtracker.backup.keyId }}"
+Environment=B2_APPLICATION_KEY="{{ mealtracker.backup.applicationKey }}"
+ExecStart=/usr/local/bin/sqlite-backup-b2
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup timer for the {{ ansible_play_name }} sqlite database
+After=network-online.target
+
+[Timer]
+{% for entry in timers %}
+{{ entry }}
+{% endfor %}
+
+[Install]
+WantedBy=timers.target
