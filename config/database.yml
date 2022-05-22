@@ -22,4 +22,5 @@ test:
 
 production:
   <<: *default
-  database: ../shared/production.sqlite3 # ../shared is managed by Ansistrano
+  database: ../../shared/production.sqlite3 # directories are managed by Ansistrano
+  # we are in e.g. releases/20220522134502Z; share is then ../../shared
