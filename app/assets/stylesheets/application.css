@@ -14,10 +14,17 @@
  *= require_self
  */
 
-.error, .notice {
+.error, .notice, .error_explanation {
   background: var(--accent-bg);
   border: 2px solid var(--border);
   border-radius: 5px;
   padding: 1.5rem;
   margin: 2rem 0;
 }
+
+/* too ugly
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+} */

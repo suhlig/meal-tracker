@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
       sign_in(@user)
       redirect_to(root_path)
     else
-      render(:new)
+      render :new, status: :unprocessable_entity
     end
   end
 end

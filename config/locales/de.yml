@@ -21,3 +21,7 @@ de:
         Du kannst Dich beim Mealtracker mit diesem Link anmelden:
 
         %{link}
+
+  errors:
+    one: 'Ein Fehler ist'
+    other: '%{count} Fehler sind'

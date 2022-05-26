@@ -1,5 +1,16 @@
 Hier kannst Du Dich neu registrieren, um Zugang zum Mailtracker zu erhalten:
 
+<% if @user.errors.any? %>
+  <div class="error_explanation">
+    <%= I18n.t(:errors, count: @user.errors.count) %> aufgetreten:
+    <ul>
+      <% @user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <p>
 <%= form_for @user, url: registrations_path do |f| %>
   <%= f.label :email, 'eMail:' %>
