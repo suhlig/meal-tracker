@@ -12,9 +12,6 @@ Note the trailing comma in the inventory passed with `-i`.
 
 # TODOs
 
-* Did the deletion of older backups work?
-* Login via allow-listed eMail address only
-* Handle rails secrets
 * Automatically test and verify the backup process
 
 # Backup

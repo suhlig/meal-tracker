@@ -14,11 +14,11 @@ de:
       new:
         submit: Anmelde-Link senden
     mailer:
-      subject: "Mealtracker: Dein Anmelde-Link"
+      subject: "Meal Tracker: Dein Anmelde-Link"
       magic_link: |
         Hallo,
 
-        Du kannst Dich beim Mealtracker mit diesem Link anmelden:
+        Du kannst Dich beim Meal Tracker mit diesem Link anmelden:
 
         %{link}
 
