@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root "meals#index"
+  passwordless_for :users
+
+  resources(:users)
+  resources(:registrations, only: %i[new create])
+
+  root "root#index"
 
   get "meals/search", to: "meals#search"
 

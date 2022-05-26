@@ -93,4 +93,7 @@ Rails.application.configure do
 
   # Set to true if we ever go beyond a single node
   config.active_record.sqlite3_production_warning = false
+
+  config.action_mailer.default_url_options = { host: 'mealtracker.uhlig.it' }
+  config.i18n.available_locales = :de
 end

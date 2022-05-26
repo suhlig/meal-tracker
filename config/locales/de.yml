@@ -1,9 +1,23 @@
 de:
-  helpers:
-    submit:
-      create: "%{model} anlegen"
-      update: "%{model} ändern"
   activerecord:
     models:
       meal: Essen
       cooking: Serviert
+      user: Benutzer
+
+  passwordless:
+    sessions:
+      create:
+        session_expired: Die Sitzung ist veraltet; bitte melde Dich erneut an.
+        email_sent_if_record_found: Falls wir Dich im System haben, bekommst Du in Kürze eine eMail.
+        token_claimed: Dieser Link wurde bereits benutzt. Bitte fordere einen neuen an.
+      new:
+        submit: Anmelde-Link senden
+    mailer:
+      subject: "Mealtracker: Dein Anmelde-Link"
+      magic_link: |
+        Hallo,
+
+        Du kannst Dich beim Mealtracker mit diesem Link anmelden:
+
+        %{link}

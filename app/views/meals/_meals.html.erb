@@ -3,7 +3,7 @@
     <li>
       <%= link_to meal.title, meal %>
       <% if last_cooked = meal.cookings.order(cooked_at: :desc).first %>
-        (zuletzt gekocht am <%= last_cooked.cooked_at %>)
+        (zuletzt gekocht am <%= I18n.l last_cooked.cooked_at %>)
       <% end %>
     </li>
   <% end %>

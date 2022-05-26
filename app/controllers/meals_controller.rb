@@ -1,4 +1,6 @@
 class MealsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @meals = Meal.includes(:cookings).order('cookings.cooked_at DESC')
   end

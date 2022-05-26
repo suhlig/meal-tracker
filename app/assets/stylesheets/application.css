@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.error, .notice {
+  background: var(--accent-bg);
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}

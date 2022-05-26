@@ -1,0 +1,15 @@
+<p>
+Bist Du bereits registriert? Wenn ja, dann gib bitte hier Deine Adresse ein.
+</p>
+
+<p>
+<%= form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
+  <% email_field_name = :"passwordless[#{@email_field}]" %>
+  <%= text_field_tag email_field_name, params.fetch(email_field_name, nil) %>
+  <%= f.submit I18n.t('passwordless.sessions.new.submit') %>
+<% end %>
+</p>
+
+<p>
+Du Dich Dich auch neu <%= link_to 'registrieren', new_registration_path %>.
+</p>

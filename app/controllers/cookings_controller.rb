@@ -1,4 +1,6 @@
 class CookingsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @meal = Meal.find(params[:meal_id])
     @cooking = @meal.cookings.create(cooking_params)

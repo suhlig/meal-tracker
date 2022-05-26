@@ -12,15 +12,33 @@
 </head>
 <body>
   <header>
-    <h1><%= link_to "Meal Tracker", :meals %></h1>
+    <nav>
+      <%= link_to "Start", "/" %>
+      <%= link_to "Benutzer", users_path %>
+      <% if current_user %>
+        <%= link_to "Abmelden", users.sign_out_path %>
+      <% else %>
+        <%= link_to "Anmelden", users.sign_in_path %>
+      <% end %>
+      <%= render 'search' %>
+    </nav>
+
+    <h1>Meal Tracker</h1>
     <p>Wann haben wir <i>das</i> zuletzt gegessen?</p>
   </header>
 
   <main>
+    <% flash.each do |kind, msg| %>
+      <%= tag.div(class: kind) { msg } %>
+    <% end %>
+
     <%= yield %>
   </main>
 
   <footer>
+    <% if current_user %>
+      <p>angemeldet als <%= current_user.email %></p>
+    <% end %>
     <p>Steffen Uhlig, 2022</p>
   </footer>
 </body>

@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "passwordless", git: "https://github.com/mikker/passwordless"
+gem "rails-i18n", "~> 7.0"
