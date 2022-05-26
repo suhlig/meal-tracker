@@ -17,6 +17,7 @@
 # Ignore uploaded files in development.
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 # or operating system, you probably want to add a global ignore instead:
+.envrc
 .rake_tasks
 .vscode
 /.bundle

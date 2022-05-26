@@ -73,3 +73,5 @@ end
 
 gem "passwordless", git: "https://github.com/mikker/passwordless"
 gem "rails-i18n", "~> 7.0"
+
+gem "postmark-rails", "~> 0.22.0"

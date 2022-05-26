@@ -95,5 +95,8 @@ Rails.application.configure do
   config.active_record.sqlite3_production_warning = false
 
   config.action_mailer.default_url_options = { host: 'mealtracker.uhlig.it' }
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { api_token: ENV.fetch("POSTMARK_API_TOKEN") }
+
   config.i18n.available_locales = :de
 end

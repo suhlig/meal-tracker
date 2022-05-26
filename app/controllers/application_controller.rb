@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     return if current_user
     save_passwordless_redirect_location!(User)
 
-    flash[:error] = 'Sorry, nicht ohne Anmeldung.'
+    flash[:error] = 'Dafür musst Du angemeldet sein.'
     redirect_to '/users/sign_in'
   end
 end

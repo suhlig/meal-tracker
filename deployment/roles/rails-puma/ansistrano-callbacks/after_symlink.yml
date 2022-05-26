@@ -31,6 +31,7 @@
     chdir: "{{ ansistrano_release_path.stdout }}"
   environment:
     RAILS_ENV: production
+    POSTMARK_API_TOKEN: "{{ postmark.api_token }}"
   become: false
   tags: rails, assets
 
@@ -40,6 +41,7 @@
     chdir: "{{ ansistrano_release_path.stdout }}"
   environment:
     RAILS_ENV: production
+    POSTMARK_API_TOKEN: "{{ postmark.api_token }}"
   become: false
   tags: rails, database
 
@@ -49,6 +51,7 @@
     chdir: "{{ ansistrano_release_path.stdout }}"
   environment:
     RAILS_ENV: production
+    POSTMARK_API_TOKEN: "{{ postmark.api_token }}"
   register: migration_status
   become: false
   tags: rails, database

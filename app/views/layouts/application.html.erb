@@ -13,8 +13,8 @@
 <body>
   <header>
     <nav>
-      <%= link_to "Start", "/" %>
-      <%= link_to "Benutzer", users_path %>
+      <%= link_to "Start", root_url %>
+      <%= link_to "Benutzer", main_app.users_path %>
       <% if current_user %>
         <%= link_to "Abmelden", users.sign_out_path %>
       <% else %>
@@ -37,7 +37,7 @@
 
   <footer>
     <% if current_user %>
-      <p>angemeldet als <%= current_user.email %></p>
+      <p>Du bist angemeldet als <%= current_user.email %></p>
     <% end %>
     <p>Steffen Uhlig, 2022</p>
   </footer>

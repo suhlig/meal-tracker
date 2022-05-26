@@ -7,6 +7,7 @@ User={{ ansible_user }}
 Group={{ ansible_user }}
 Environment=RAILS_ENV=production
 Environment=RAILS_SERVE_STATIC_FILES=true
+Environment=POSTMARK_API_TOKEN={{ postmark.api_token }}
 ExecStart={{ ansistrano_release_path.stdout }}/bin/rails server --port {{ mealtracker.port }} --environment=production
 Type=simple
 Restart=on-failure
