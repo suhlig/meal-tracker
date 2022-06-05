@@ -12,7 +12,8 @@ Note the trailing comma in the inventory passed with `-i`.
 
 # TODOs
 
-* Automatically test and verify the backup process
+* Search suggestions as typeahead
+* _Automatically_ test and verify the backup process
 
 # Backup
 
