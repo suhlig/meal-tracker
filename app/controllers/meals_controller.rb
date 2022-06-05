@@ -6,7 +6,7 @@ class MealsController < ApplicationController
   end
 
   def search
-    @query = params[:query]
+    @query = params[:query].strip
     title_matcher = Meal.arel_table[:title]
     @meals = Meal.where(title_matcher.matches("%#{ActiveRecord::Base::sanitize_sql_like(@query)}%"))
   end
