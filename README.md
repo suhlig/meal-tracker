@@ -12,8 +12,8 @@ Note the trailing comma in the inventory passed with `-i`.
 
 # TODOs
 
-* Search suggestions as typeahead
-* Calendar view (to see gaps in recording)
+* Search suggestions for meals and tags as typeahead
+* last x days (even if it has dupes) should be the home page
 * Stats (what's eaten most often, least often, longest time not eaten, etc.)
 * _Automatically_ test and verify the backup process
 
