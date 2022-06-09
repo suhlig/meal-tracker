@@ -22,9 +22,7 @@
   margin: 2rem 0;
 }
 
-/* too ugly
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-} */
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }

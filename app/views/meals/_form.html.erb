@@ -16,6 +16,12 @@
   </div>
 
   <div>
+    <%= form.label :tag_list, "Tags" %><br>
+    <%= form.text_field :tag_list, value: @meal.tag_list, placeholder: 'z.B. pizza pasta fleisch'
+    %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

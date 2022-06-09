@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root "root#index"
 
   get "meals/search", to: "meals#search"
+  get 'tags', to: "meals#tags", as: :tags
+  get 'tag/:id', to: "meals#tag", as: :tag
 
   resources :meals do
     resources :cookings

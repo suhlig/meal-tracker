@@ -13,6 +13,8 @@ Note the trailing comma in the inventory passed with `-i`.
 # TODOs
 
 * Search suggestions as typeahead
+* Calendar view (to see gaps in recording)
+* Stats (what's eaten most often, least often, longest time not eaten, etc.)
 * _Automatically_ test and verify the backup process
 
 # Backup

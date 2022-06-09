@@ -3,6 +3,7 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.includes(:cookings).order('cookings.cooked_at DESC')
+    @tags = Meal.tag_counts_on(:tags)
   end
 
   def search
@@ -11,8 +12,22 @@ class MealsController < ApplicationController
     @meals = Meal.where(title_matcher.matches("%#{ActiveRecord::Base::sanitize_sql_like(@query)}%"))
   end
 
+  def tags
+    @tags = Meal.tag_counts_on(:tags)
+  end
+
+  def tag
+    if params[:id].present?
+      @tag = params[:id]
+      @meals = Meal.tagged_with(@tag)
+    else
+      raise "no tag"
+    end
+  end
+
   def show
     @meal = Meal.find(params[:id])
+    @tags = @meal.tag_counts_on(:tags)
   end
 
   def new
@@ -53,6 +68,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:title, :notes)
+    params.require(:meal).permit(:title, :notes, :tag_list)
   end
 end

@@ -75,3 +75,5 @@ gem "passwordless", git: "https://github.com/mikker/passwordless"
 gem "rails-i18n", "~> 7.0"
 
 gem "postmark-rails", "~> 0.22.0"
+
+gem "acts-as-taggable-on", "~> 9.0"

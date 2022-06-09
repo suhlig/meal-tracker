@@ -14,6 +14,7 @@
   <header>
     <nav>
       <%= link_to "Start", root_url %>
+      <%= link_to "Tags", tags_url %>
       <%= link_to "Benutzer", main_app.users_path %>
       <% if current_user %>
         <%= link_to "Abmelden", users.sign_out_path %>
