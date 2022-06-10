@@ -23,19 +23,6 @@ class MealsController < ApplicationController
     render 'autocomplete', layout: nil
   end
 
-  def tags
-    @tags = Meal.tag_counts_on(:tags)
-  end
-
-  def tag
-    if params[:id].present?
-      @tag = params[:id]
-      @meals = Meal.tagged_with(@tag)
-    else
-      raise "no tag"
-    end
-  end
-
   def show
     @meal = Meal.find(params[:id])
     @tags = @meal.tag_counts_on(:tags)

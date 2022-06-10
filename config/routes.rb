@@ -6,12 +6,10 @@ Rails.application.routes.draw do
 
   root "root#index"
 
-  get "meals/search", to: "meals#search"
-
-  get 'tags', to: "meals#tags"
-  get 'tag/:id', to: "meals#tag"
+  resources :tags
 
   resources :meals do
+    get :search, on: :collection
     get :autocomplete, on: :collection
     resources :cookings
   end
