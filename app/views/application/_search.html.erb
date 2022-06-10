@@ -1,5 +1,12 @@
-<div>
+<div data-controller="autocomplete" data-autocomplete-url-value="/meals/autocomplete" data-autocomplete-submit-on-enter-value="true">
 <%= form_with url: "/meals/search", method: :get do |form| %>
-  <%= form.text_field :query, value: @query, placeholder: "Essen suchen..." %>
+  <%= form.text_field :query,
+      value: @query,
+      class: 'form-control',
+      placeholder: "Suchen...",
+      'data-autocomplete-target' => "input"
+  %>
+  <input id="autocomplete-target" type="hidden" name="id" data-autocomplete-target="hidden" onchange="this.form.submit()"/>
+  <ul data-autocomplete-target="results" class="autocomplete-results list-group"/>
 <% end %>
 </div>

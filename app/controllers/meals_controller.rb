@@ -7,9 +7,20 @@ class MealsController < ApplicationController
   end
 
   def search
+    if params[:id].present? && Meal.exists?(params[:id]) # from autocomplete
+      redirect_to meal_path(params[:id])
+    end
+
     @query = params[:query].strip
     title_matcher = Meal.arel_table[:title]
     @meals = Meal.where(title_matcher.matches("%#{ActiveRecord::Base::sanitize_sql_like(@query)}%"))
+  end
+
+  def autocomplete
+    @query = params[:q].strip
+    title_matcher = Meal.arel_table[:title]
+    @meals = Meal.where(title_matcher.matches("%#{ActiveRecord::Base::sanitize_sql_like(@query)}%"))
+    render 'autocomplete', layout: nil
   end
 
   def tags

@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   root "root#index"
 
   get "meals/search", to: "meals#search"
+
   get 'tags', to: "meals#tags"
   get 'tag/:id', to: "meals#tag"
 
   resources :meals do
+    get :autocomplete, on: :collection
     resources :cookings
   end
 end

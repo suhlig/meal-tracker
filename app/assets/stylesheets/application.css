@@ -26,3 +26,22 @@
 .tag2 { font-size: 1.2em; }
 .tag3 { font-size: 1.4em; }
 .tag4 { font-size: 1.6em; }
+
+.autocomplete-results {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autocomplete-results li {
+  border: 1px solid var(--border);
+  margin-top: -1px; /* Prevent double borders */
+  background-color: var(--accent-bg);
+  padding: 12px;
+}
+
+.autocomplete-results li[aria-selected="true"] {
+  /* invert colors for the selected list entry */
+  color: var(--accent-bg);
+  background-color: var(--accent);
+}

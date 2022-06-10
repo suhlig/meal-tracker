@@ -1,0 +1,5 @@
+<% @meals.each do |meal| %>
+  <li class="list-group-item" role="option" data-autocomplete-value="<%= meal.id %>" data-autocomplete-label="<%= meal.title %>">
+    <%= meal.title %>
+  </li>
+<% end %>
