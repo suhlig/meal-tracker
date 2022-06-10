@@ -1,9 +1,5 @@
 <h1><%= @meals.size %> Ergebnisse für "<%= @query %>"</h1>
 
-<%= render 'search' %>
-
 <%= render 'meals' %>
-
-<%= render 'search' %>
 
 <p><%= link_to "Hinzufügen...", new_meal_path %></p>

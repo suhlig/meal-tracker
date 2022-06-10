@@ -1,9 +1,9 @@
 <h1>Essen</h1>
 
-<section>
-  <p><%= link_to "Hinzufügen...", new_meal_path %></p>
+<%= render 'search' %>
 
-  <%= render 'meals' %>
+<p><%= link_to "Hinzufügen...", new_meal_path %></p>
 
-  <p><%= link_to "Hinzufügen...", new_meal_path %></p>
-</section>
+<%= render 'meals' %>
+
+<p><%= link_to "Hinzufügen...", new_meal_path %></p>
