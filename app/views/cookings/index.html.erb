@@ -1,0 +1,16 @@
+<%= render 'nav', week_of: @week_of %>
+
+<h1>Woche vom <%= I18n.l(@week_of) %></h1>
+
+<% @cookings.reverse_each do |date, cookings| %>
+  <b><%= I18n.l(date) %></b>
+  <small>(<%= link_to 'Ergänzen', new_cooking_path(cooked_at: date) %>)</small>
+
+  <p>
+  <% cookings.each do |cooking| %>
+    <%= link_to cooking.meal.title, cooking.meal %><br/>
+  <% end %>
+  </p>
+<% end %>
+
+<%= render 'nav', week_of: @week_of %>

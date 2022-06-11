@@ -1,6 +1,23 @@
 class CookingsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    if params.include?(:week_of)
+      @week_of = Time.parse(params[:week_of]).beginning_of_week.to_date
+    else
+      @week_of = Time.now.beginning_of_week.to_date
+    end
+
+    @cookings = (@week_of.beginning_of_week..@week_of.end_of_week).inject(Hash.new) do |cookings, date|
+      cookings[date] = Cooking.where(cooked_at: date)
+      cookings
+    end
+  end
+
+  def new
+    @cooking = Cooking.new(cooked_at: params[:cooked_at])
+  end
+
   def create
     @meal = Meal.find(params[:meal_id])
     @cooking = @meal.cookings.create(cooking_params)
@@ -17,6 +34,6 @@ class CookingsController < ApplicationController
   private
 
   def cooking_params
-    params.require(:cooking).permit(:cooked_at)
+    params.require(:cooking).permit(:cooked_at, :meal_id)
   end
 end

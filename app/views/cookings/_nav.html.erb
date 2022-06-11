@@ -1,0 +1,5 @@
+<nav style="text-align: center;">
+  <%= link_to '<<', cookings_path(week_of: week_of.last_week), style: 'margin-right: 1em;' %>
+  <%= link_to 'Heute', cookings_path(week_of: Time.now.monday.to_date) %>
+  <%= link_to '>>', cookings_path(week_of: week_of.next_week), style: 'margin-left: 1em;' %>
+</nav>

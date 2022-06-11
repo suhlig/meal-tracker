@@ -1,5 +1,5 @@
 class RootController < ApplicationController
   def index
-    redirect_to :meals if current_user
+    redirect_to :cookings if current_user
   end
 end

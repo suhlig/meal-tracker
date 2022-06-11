@@ -1,0 +1,9 @@
+<h1>gegessen am <%= I18n.l(@cooking.cooked_at) %></h1>
+
+<%= form_with model: [ @cooking ] do |form| %>
+  <p>
+    <%= form.hidden_field :cooked_at %>
+    <%= render 'search' %>
+    <%= form.submit 'Eintragen' %>
+  </p>
+<% end %>

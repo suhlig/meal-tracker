@@ -13,7 +13,8 @@
 <body>
   <header>
     <nav>
-      <%= link_to "Essen", root_url %>
+      <%= link_to "Home", root_url %>
+      <%= link_to "Essen", meals_url %>
       <%= link_to "Tags", tags_url %>
       <%= link_to "Benutzer", main_app.users_path %>
       <% if current_user %>
