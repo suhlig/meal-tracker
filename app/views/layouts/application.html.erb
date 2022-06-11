@@ -13,9 +13,9 @@
 <body>
   <header>
     <nav>
-      <%= link_to "Home", root_url %>
-      <%= link_to "Essen", meals_url %>
-      <%= link_to "Tags", tags_url %>
+      <%= link_to "Home", main_app.root_path %>
+      <%= link_to "Essen", main_app.meals_path %>
+      <%= link_to "Tags", main_app.tags_path %>
       <%= link_to "Benutzer", main_app.users_path %>
       <% if current_user %>
         <%= link_to "Abmelden", users.sign_out_path %>
