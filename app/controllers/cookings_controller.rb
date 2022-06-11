@@ -8,8 +8,11 @@ class CookingsController < ApplicationController
       @week_of = Time.now.beginning_of_week.to_date
     end
 
-    @cookings = (@week_of.beginning_of_week..@week_of.end_of_week).inject(Hash.new) do |cookings, date|
-      cookings[date] = Cooking.where(cooked_at: date)
+    full_week = @week_of.beginning_of_week..@week_of.end_of_week
+    cookings_of_week = Cooking.includes(:meal).where(cooked_at: full_week).to_a
+
+    @cookings = full_week.inject(Hash.new) do |cookings, date|
+      cookings[date] = cookings_of_week.select{|c| c.cooked_at == date}
       cookings
     end
   end
