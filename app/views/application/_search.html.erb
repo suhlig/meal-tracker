@@ -4,7 +4,8 @@
       value: @query,
       class: 'form-control',
       placeholder: "Suchen...",
-      'data-autocomplete-target' => "input"
+      'data-autocomplete-target' => "input",
+      autofocus: true
   %>
   <input id="autocomplete-target" type="hidden" name="meal_id" data-autocomplete-target="hidden" onchange="this.form.submit()"/>
   <ul data-autocomplete-target="results" class="autocomplete-results list-group"/>
