@@ -7,8 +7,8 @@ class MealsController < ApplicationController
   end
 
   def search
-    if params[:id].present? && Meal.exists?(params[:id]) # from autocomplete
-      redirect_to meal_path(params[:id])
+    if params[:meal_id].present? && Meal.exists?(params[:meal_id]) # from autocomplete
+      redirect_to meal_path(params[:meal_id])
     end
 
     @query = params[:query].strip
