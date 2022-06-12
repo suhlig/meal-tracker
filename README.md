@@ -15,6 +15,8 @@ Note the trailing comma in the inventory passed with `-i`.
 * More stats (what's eaten least often, longest time not eaten, etc.)
 * autocomplete for tags
 * _Automatically_ test and verify the backup process
+* Multiple ordered notes on a meal (i.e. for an individual cooking)
+* Roulette - system picks a random meal
 
 # Backup
 
@@ -34,11 +36,3 @@ Note the trailing comma in the inventory passed with `-i`.
   - mealtracker-production.2022.sqlite3
   - mealtracker-production.2023.sqlite3
   - ...
-
-# Ideas
-
-* Dashboard shows most often and least often cooked
-* Tags for ingredients, categories and other attributes (`sweet`, `meat`, `pasta`)
-* Multiple ordered notes on a meal (i.e. for an individual cooking)
-* Roulette - system picks a random meal
-* UUIDs instead of numeric IDs (probably not worth it unless we use Postgres)
