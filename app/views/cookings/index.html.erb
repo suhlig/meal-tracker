@@ -2,7 +2,7 @@
 
 <h1>Woche vom <%= I18n.l(@week_of) %></h1>
 
-<% @cookings.reverse_each do |date, cookings| %>
+<% @cookings_for_week.reverse_each do |date, cookings| %>
   <b><%= I18n.l(date) %></b>
   <small>(<%= link_to 'Ergänzen', new_cooking_path(cooked_at: date) %>)</small>
 
