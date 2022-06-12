@@ -12,9 +12,8 @@ Note the trailing comma in the inventory passed with `-i`.
 
 # TODOs
 
-* New cookings should show autofocus and show _all_ entries when getting focus
+* More stats (what's eaten least often, longest time not eaten, etc.)
 * autocomplete for tags
-* Stats (what's eaten most often, least often, longest time not eaten, etc.)
 * _Automatically_ test and verify the backup process
 
 # Backup

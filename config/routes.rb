@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   resources(:cookings)
   resources(:tags)
+  resources(:stats)
 end
 

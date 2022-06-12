@@ -1,0 +1,20 @@
+<h1>Top 10</h1>
+
+<table>
+<tr>
+  <th>Platz</th>
+  <th>Essen</th>
+  <th>gegessen</th>
+  <th>zuletzt</th>
+</tr>
+
+<% @top10.each.with_index do |meal, place| %>
+<tr>
+  <td><%= place + 1 %></td>
+  <td><%= link_to meal.title, meal %></td>
+  <td><%= meal.cookings_count %> mal</td>
+  <td><%= I18n.l(meal.cookings.order(cooked_at: :desc).first.cooked_at) %></td>
+</tr>
+<% end %>
+
+</table>
