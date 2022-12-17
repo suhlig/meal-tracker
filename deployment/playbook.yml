@@ -41,7 +41,7 @@
     - role: rails-puma
       tags: [ puma, ruby, service ]
 
-    - role: sqlite-backup-b2
+    - role: uhlig-it.ansible-role-sqlite-backup-b2
       vars:
         timers:
           - OnCalendar=daily
