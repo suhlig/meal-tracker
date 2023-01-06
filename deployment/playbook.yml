@@ -41,10 +41,13 @@
     - role: rails-puma
       tags: [ puma, ruby, service ]
 
-    - role: uhlig-it.ansible-role-sqlite-backup-b2
+    - role: uhlig-it.sqlite_backup_b2
       vars:
-        timers:
-          - OnCalendar=daily
+        sqlite_backup_b2_prefix: "{{ ansible_play_name }}"
+        sqlite_backup_b2_database_path: "{{ ansistrano_shared_path }}/production.sqlite3"
+        sqlite_backup_b2_bucket: suhlig-mealtracker-backup
+        sqlite_backup_b2_keyId: "{{ mealtracker.backup.keyId }}"
+        sqlite_backup_b2_applicationKey: "{{ mealtracker.backup.applicationKey }}"
       become: true
       tags: [ sqlite, backup, service, timer ]
 
